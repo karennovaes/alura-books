@@ -1,18 +1,34 @@
-import './estilo.css';
+import styled from 'styled-components'
 
+const Opcao = styled.li`
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 0 5px;
+    cursor: pointer;
+    min-width: 120px;
+`
 
-const  textOpcoes = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
+const Opcoes = styled.ul`
+    display: flex;
+`
 
-function    OpcoesHeader() {
+const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'MINHA ESTANTE']
+
+function OpcoesHeader() {
     return (
-        <ul className='opcoes'> 
-          {textOpcoes.map((texto) => ( 
-            <li className='opcao'><p>{texto}</p></li>
-          ))} 
-        </ul>
-    );
+        <Opcoes>
+            { textoOpcoes.map ( (texto) => (
+                <Opcao><p>{texto}</p></Opcao>
+            ) ) }
+        </Opcoes>
+    )
 }
-export default OpcoesHeader;
+
+export default OpcoesHeader
  /* map é uma função que percorre um array e 
  retorna um novo array com as modificações que 
  você deseja  */
