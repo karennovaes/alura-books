@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createGlobalStyle } from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,13 +23,18 @@ const GlobalStyle = createGlobalStyle`
     li {
       list-style: none;
     }
-`
+`;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GlobalStyle />
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />  } />
+        <Route path="/favoritos" element={<p>Oi!</p>} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
