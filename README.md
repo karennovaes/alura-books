@@ -8,6 +8,7 @@ Este projeto foi desenvolvido durante o curso **"React: Comece seu projeto full 
 - JavaScript
 - HTML
 - CSS
+- Axios
 
 
 ## 🔧 Como Executar o Projeto
