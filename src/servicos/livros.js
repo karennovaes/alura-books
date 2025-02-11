@@ -5,7 +5,7 @@ const livrosAPI = axios.create({
 });
 
 function getLivros() {
-    const response = livrosAPI.get('/');]
+    const response = livrosAPI.get('/');
     return response.data;
 }
 

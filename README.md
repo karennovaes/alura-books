@@ -9,6 +9,7 @@ Este projeto foi desenvolvido durante o curso **"React: Comece seu projeto full 
 - HTML
 - CSS
 - Axios
+- UseEffect
 
 
 ## 🔧 Como Executar o Projeto
