@@ -43,12 +43,14 @@ function Pesquisa() {
   const [livrosPesquisados, setLivrosPesquisados] = useState([]);
   const [livros, setLivros] = useState([]);
 
-    useEffect(() => { // useEffect é um hook do React que executa uma função toda vez que o componente é renderizado
-        const livrosDaAPI = getLivros() // getLivros() é uma função que retorna uma lista de livros
-        setLivros(livrosDaAPI) // setLivros é uma função que atualiza o estado de livros
-
+    useEffect(() => { // useEffect é um hook do React que executa uma função toda vez que o componente é renderizado      
+        fetchLivros() // fetchLivros é uma função que busca livros da API
      }, [])
 
+     async function fetchLivros() { // fetchLivros é uma função assíncrona que busca livros da API
+        const livrosDaAPI = await getLivros() // getLivros() é uma função que retorna uma lista de livros
+        setLivros(livrosDaAPI) // setLivros é uma função que atualiza o estado de livros
+     }
 
   return (
     <PesquisaContainer>
