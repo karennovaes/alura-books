@@ -2,6 +2,7 @@ import Input from "../Input";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { getLivros } from "../../servicos/livros";
+import { postFavoritos } from "../../servicos/favoritos";
 
 const PesquisaContainer = styled.section`
   background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -52,6 +53,12 @@ function Pesquisa() {
         setLivros(livrosDaAPI) // setLivros é uma função que atualiza o estado de livros
      }
 
+     async function insertFavorito(id) {
+      await postFavoritos(id)
+      alert(`Livro de id:${id} adicionado aos favoritos!`)
+    }
+
+
   return (
     <PesquisaContainer>
       <Titulo>Já sabe por onde começar?</Titulo>
@@ -67,7 +74,7 @@ function Pesquisa() {
         }}
       />
       {livrosPesquisados.map((livro) => (
-        <Resultado>
+        <Resultado onClick={() => insertFavorito(livro.id)} key={livro.id}>
           <img alt="livros" src={livro.src} />
           <p>{livro.nome}</p>
         </Resultado>
